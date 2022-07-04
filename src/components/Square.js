@@ -1,17 +1,9 @@
-import { useState } from 'react';
-import { usePlayer, usePlayerUpdate } from '../contexts/GameboardContext';
+// import { useGame, useGameUpdate } from '../contexts/GameboardContext';
 
 function Square() {
-	const [state, setState] = useState('');
-	const currentPlayer = usePlayer();
-	const updatePlayer = usePlayerUpdate();
+	function handleClick() {}
 
-	function handleClick() {
-		setState(currentPlayer);
-		updatePlayer();
-	}
-
-	return <div onClick={handleClick}>{state}</div>;
+	return <div onClick={handleClick}></div>;
 }
 
 export default Square;

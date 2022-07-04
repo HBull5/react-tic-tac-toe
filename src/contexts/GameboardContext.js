@@ -1,26 +1,38 @@
 import React, { useContext, useState } from 'react';
 
-const PlayerContext = React.createContext();
-const PlayerUpdateContext = React.createContext();
+const GameContext = React.createContext();
+const GameUpdateContext = React.createContext();
 
-export function usePlayer() {
-	return useContext(PlayerContext);
+export function useGame() {
+	return useContext(GameContext);
 }
 
-export function usePlayerUpdate() {
-	return useContext(PlayerUpdateContext);
+export function useGameUpdate() {
+	return useContext(GameUpdateContext);
 }
 
+// think I need to implement useReducer
 export default function PlayerProvider({ children }) {
-	const [player, setPlayer] = useState('x');
+	const [gameState, setGameState] = useState({
+		player: 'x'
+	});
 
+	// dispatch action
 	function changePlayer() {
-		setPlayer(prevPlayer => (prevPlayer === 'x' ? 'o' : 'x'));
+		setGameState(prevGameState => (prevGameState.player === 'x' ? 'o' : 'x'));
 	}
 
+	// dispatch action
+	function markPlace() {}
+
+	// dispatch action
+	function gameStatus() {}
+
+	function updateGameState() {}
+
 	return (
-		<PlayerContext.Provider value={player}>
-			<PlayerUpdateContext.Provider value={changePlayer}>{children}</PlayerUpdateContext.Provider>
-		</PlayerContext.Provider>
+		<GameContext.Provider value={gameState}>
+			<GameUpdateContext.Provider value={updateGameState}>{children}</GameUpdateContext.Provider>
+		</GameContext.Provider>
 	);
 }
