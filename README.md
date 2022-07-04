@@ -13,3 +13,5 @@
 -   play again
 
 -   choose who goes first
+
+-   use emoji's instead of x's and o's

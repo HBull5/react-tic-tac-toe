@@ -1,9 +1,21 @@
-// import { useGame, useGameUpdate } from '../contexts/GameboardContext';
+import { useGame, useGameUpdate } from '../contexts/GameContext';
 
-function Square() {
-	function handleClick() {}
+function Square({ index }) {
+	const gameState = useGame();
+	const setGameState = useGameUpdate();
 
-	return <div onClick={handleClick}></div>;
+	function handleClick() {
+		!gameState.positions[index] &&
+			setGameState(prevGameState => ({
+				...prevGameState,
+				currentPlayer: prevGameState.currentPlayer === 'x' ? 'o' : 'x',
+				positions: prevGameState.positions.map((position, i) =>
+					index === i ? prevGameState.currentPlayer : position
+				)
+			}));
+	}
+
+	return <div className={gameState.positions[index]} onClick={handleClick}></div>;
 }
 
 export default Square;

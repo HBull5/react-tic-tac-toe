@@ -1,9 +1,9 @@
-import GameBoard from './components/Gameboard';
+import Game from './components/Game';
 
 function App() {
 	return (
 		<>
-			<GameBoard />
+			<Game />
 		</>
 	);
 }
