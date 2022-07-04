@@ -1,16 +1,15 @@
+import GameboardContext from '../contexts/GameboardContext';
+import Square from './Square';
+
 function GameBoard() {
 	return (
-        <div class="gameboard">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+        <GameboardContext>
+            <div className="gameboard">
+                {[...Array(9)].map((e, i) => (
+                    <Square key={i} />
+                ))}
+            </div>
+        </GameboardContext>
     )
 }
 
