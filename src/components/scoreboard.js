@@ -1,5 +1,5 @@
 function ScoreBoard() {
-	return <></>;
+	return <div className="scoreboard"></div>;
 }
 
 export default ScoreBoard;

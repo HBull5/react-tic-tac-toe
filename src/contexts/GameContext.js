@@ -53,6 +53,7 @@ export default function GameProvider({ children }) {
 			// win condition
 			alert(`player ${winner} won!`);
 		} else if (!gameState.positions.filter(position => !position).length) {
+			// draw condition
 			alert('game was a draw');
 		}
 	}, [gameState]);
