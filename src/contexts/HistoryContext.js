@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 
 const HistoryContext = React.createContext(); 
 const HistoryUpdateContext = React.createContext(); 
@@ -13,10 +13,6 @@ export function useUpdateHistory() {
 
 export default function HistoryProvider({ children }) {
     const [history, setHistory] = useState([]); 
-
-    useEffect(() => {
-        console.log(history);
-    }, [history]);
 
     return(
         <HistoryContext.Provider value={history}>

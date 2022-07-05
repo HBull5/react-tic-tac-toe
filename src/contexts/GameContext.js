@@ -19,7 +19,6 @@ export default function GameProvider({ children }) {
 		positions: [...Array(9)]
 	});
 
-
 	useEffect(() => {
 		// store history of state
 		setHistory(prevHistory => ([...prevHistory, game]));
