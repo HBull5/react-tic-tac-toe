@@ -1,5 +1,7 @@
 # Todos
 
+-   I think I just need to just wrap `HistoryContext` into `GameContext`
+
 -   player scoreboard
 
 -   play again
