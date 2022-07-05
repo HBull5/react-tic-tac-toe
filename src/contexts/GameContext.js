@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useUpdateHistory } from './HistoryContext';
 
 const GameContext = React.createContext();
 const GameUpdateContext = React.createContext();
@@ -12,13 +13,16 @@ export function useGameUpdate() {
 }
 
 export default function GameProvider({ children }) {
-	const [gameState, setGameState] = useState({
+	const setHistory = useUpdateHistory(); 
+	const [game, setGame] = useState({
 		currentPlayer: 'x',
 		positions: [...Array(9)]
 	});
 
+
 	useEffect(() => {
 		// store history of state
+		setHistory(prevHistory => ([...prevHistory, game]));
 
 		// check if game is won or drawn
 		let winner;
@@ -33,11 +37,11 @@ export default function GameProvider({ children }) {
 			[3, 5, 7]
 		];
 
-		const crosses = gameState.positions
+		const crosses = game.positions
 			.map((position, i) => position === 'x' && i + 1)
 			.filter(position => position);
 
-		const circles = gameState.positions
+		const circles = game.positions
 			.map((position, i) => position === 'o' && i + 1)
 			.filter(position => position);
 
@@ -52,15 +56,15 @@ export default function GameProvider({ children }) {
 		if (winner) {
 			// win condition
 			alert(`player ${winner} won!`);
-		} else if (!gameState.positions.filter(position => !position).length) {
+		} else if (!game.positions.filter(position => !position).length) {
 			// draw condition
 			alert('game was a draw');
 		}
-	}, [gameState]);
+	}, [game]);
 
 	return (
-		<GameContext.Provider value={gameState}>
-			<GameUpdateContext.Provider value={setGameState}>{children}</GameUpdateContext.Provider>
+		<GameContext.Provider value={game}>
+			<GameUpdateContext.Provider value={setGame}>{children}</GameUpdateContext.Provider>
 		</GameContext.Provider>
 	);
 }
