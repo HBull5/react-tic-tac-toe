@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useUpdateHistory } from './HistoryContext';
 
 const GameContext = React.createContext();
 const GameUpdateContext = React.createContext();
@@ -13,7 +12,6 @@ export function useGameUpdate() {
 }
 
 export default function GameProvider({ children }) {
-	const setHistory = useUpdateHistory(); 
 	const [game, setGame] = useState({
 		currentPlayer: 'x',
 		positions: [...Array(9)]
@@ -21,7 +19,6 @@ export default function GameProvider({ children }) {
 
 	useEffect(() => {
 		// store history of state
-		setHistory(prevHistory => ([...prevHistory, game]));
 
 		// check if game is won or drawn
 		let winner;
