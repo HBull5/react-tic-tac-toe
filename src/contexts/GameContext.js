@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { useUpdateScore } from './ScoreContext';
 
 const GameContext = React.createContext();
 const GameUpdateContext = React.createContext();
@@ -12,13 +13,13 @@ export function useGameUpdate() {
 }
 
 export default function GameProvider({ children }) {
+	const setScore = useUpdateScore();
 	const [game, setGame] = useState([{
 		currentPlayer: 'x',
 		positions: [...Array(9)]
 	}]);
 
 	useEffect(() => {
-		console.log(game);
 		// check if game is won or drawn
 		let winner;
 		const winConditions = [
@@ -51,7 +52,14 @@ export default function GameProvider({ children }) {
 
 		if (winner) {
 			// win condition
-			alert(`player ${winner} won!`);
+			setScore(prevScore => ({
+				...prevScore, 
+				[winner]: prevScore[winner] + 1
+			})); 
+			setGame([{
+				currentPlayer: 'x',
+				positions: [...Array(9)]
+			}])
 		} else if (!currentGame.positions.filter(position => !position).length) {
 			// draw condition
 			alert('game was a draw');

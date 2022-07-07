@@ -13,8 +13,8 @@ export function useUpdateScore() {
 
 export default function ScoreProvider({ children }) {
     const [score, setScore] = useState({
-		p1: 0, 
-		p2: 0
+		x: 0, 
+	    o: 0
 	});
 
     return(
