@@ -139,19 +139,24 @@ body {
 }
 
 /* Popup */
+.popup.hidden {
+    display: none;
+}
+
 .popup .popup-content {
     position: absolute; 
-    top: 50%; 
+    top: 30%; 
     left: 50%; 
     transform: translate(-50%, -50%);
     background-color: #333; 
-    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     display: flex;
     flex-wrap: wrap; 
     justify-content: flex-start; 
     align-items: center;
     padding: 5rem 4rem 4rem 4rem;
     max-width: 500px;
+    border-radius: 0.5em;
     z-index: 2; 
 }
 
@@ -163,7 +168,7 @@ body {
     transform: translate(-50%, -50%);
     height: 200vh; 
     width: 200vw;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -180,20 +185,35 @@ body {
     color: red; 
 }
 
-.popup label, 
-.popup input, 
-.popup select {
-    flex-basis: 45%; 
-}
-
 .popup label {
     font-family: 'Nunito', sans-serif;
     font-size: 20px; 
     line-height: 24px; 
+    flex-basis: 30%; 
     margin-bottom: 1rem;
 }
 
-.popup input,
+.popup .input-wrap { 
+    display: flex;
+    flex-basis: 70%; 
+    margin-bottom: 1rem;
+}
+
+.popup input, 
 .popup select {
-    padding: 0.25em;
+    width: 100%;
+    padding: 0.75em;
+    border-radius: 0.4em;
+}
+
+/* Settings */
+.settings {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+.settings i {
+    font-size: 30px;
+    padding: 1rem;
+    cursor: pointer;
 }

@@ -7,13 +7,13 @@ import Game from './components/Game';
 function App() {
 	return (
 		<>
-		{/* <SettingsProvider> */}
-			{/* <Settings /> */}
+		<SettingsProvider>
+			<Settings />
 			<ScoreProvider>
 				<Scoreboard />
 				<Game />
 			</ScoreProvider>
-		{/* </SettingsProvider> */}
+		</SettingsProvider>
 		</>
 	);
 }
