@@ -1,19 +1,13 @@
 # Todos
 
--   I think I just need to just wrap `HistoryContext` into `GameContext`
+-   settings menu 
 
--   player scoreboard
+    - player names 
 
--   play again
-
--   reset game
-
--   player history
-
--   revert to previous play
-
--   choose who goes first
+    - emoji symbols
 
 -   use emoji's instead of x's and o's <a href="https://emojis.wiki/">https://emojis.wiki/</a>
+
+-   choose who goes first
 
 -   show winning line

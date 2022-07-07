@@ -10,7 +10,7 @@ function History() {
         ));
     }
 
-    return <button onClick={handleClick}>Go Back</button>
+    return <button className="back-btn" onClick={handleClick}><i className="fas fa-redo"></i> Go Back</button>
 }
 
 export default History; 

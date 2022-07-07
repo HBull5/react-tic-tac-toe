@@ -5,8 +5,8 @@ function Scoreboard() {
 
 	return (
 		<div className="scoreboard">
-			<div>Player-1: { score.x }</div>
-			<div>Player-2: { score.o }</div>
+			<div>X: <span>{ score.x }</span></div>
+			<div>O: <span>{ score.o }</span></div>
 		</div>
 	);
 }

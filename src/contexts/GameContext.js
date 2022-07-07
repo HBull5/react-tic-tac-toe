@@ -59,10 +59,12 @@ export default function GameProvider({ children }) {
 			setGame([{
 				currentPlayer: 'x',
 				positions: [...Array(9)]
-			}])
+			}]);
 		} else if (!currentGame.positions.filter(position => !position).length) {
-			// draw condition
-			alert('game was a draw');
+			setGame([{
+				currentPlayer: 'x',
+				positions: [...Array(9)]
+			}]);
 		}
 	}, [game]);
 
