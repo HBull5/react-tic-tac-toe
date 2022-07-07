@@ -6,13 +6,15 @@ function Square({ index }) {
 
 	function handleClick() {
 		!game.positions[index] &&
-			setGame(prevGame => ({
+			setGame(prevGame => ([
 				...prevGame,
-				currentPlayer: prevGame.currentPlayer === 'x' ? 'o' : 'x',
-				positions: prevGame.positions.map((position, i) =>
-					index === i ? prevGame.currentPlayer : position
-				)
-			}));
+				{
+					currentPlayer: game.currentPlayer === 'x' ? 'o' : 'x',
+					positions: game.positions.map((position, i) =>
+						index === i ? game.currentPlayer : position
+					)
+				}
+			]));
 	}
 
 	return <div className={game.positions[index]} onClick={handleClick}></div>;
