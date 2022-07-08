@@ -252,4 +252,9 @@ body {
     font-size: 30px;
     padding: 1rem;
     cursor: pointer;
+    transition: transform 0.4s cubic-bezier(.75,-0.5,0,1.75);
+}
+
+.settings .menu:hover {
+    transform: translateY(-0.2rem);
 }
