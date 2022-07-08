@@ -1,8 +1,13 @@
+import { useSettings } from '../contexts/SettingsContext';
 import { useGame, useGameUpdate } from '../contexts/GameContext';
 
 function Square({ index }) {
+	const settings = useSettings();
 	const game = useGame();
 	const setGame = useGameUpdate();
+	const player = game.positions[index];
+	let classes = '';
+	player && (classes += player) && (classes += ` ${settings[player === 'x' ? 'p1Icon' : 'p2Icon']}`);
 
 	function handleClick() {
 		!game.positions[index] &&
@@ -17,7 +22,7 @@ function Square({ index }) {
 			]));
 	}
 
-	return <div className={game.positions[index]} onClick={handleClick}></div>;
+	return <div className={classes} onClick={handleClick}></div>;
 }
 
 export default Square;

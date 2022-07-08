@@ -44,6 +44,42 @@ body {
     content: 'o';
 }
 
+.gameboard div.🍕::before {
+    content: '🍕';
+}
+
+.gameboard div.🌮::before {
+    content: '🌮';
+}
+
+.gameboard div.☕::before {
+    content: '☕';
+}
+
+.gameboard div.🏹::before {
+    content: '🏹';
+}
+
+.gameboard div.⚔️::before {
+    content: '⚔️';
+}
+
+.gameboard div.🪴::before {
+    content: '🪴';
+}
+
+.gameboard div.🐓::before {
+    content: '🐓';
+}
+
+.gameboard div.🦆::before {
+    content: '🦆';
+}
+
+.gameboard div.☘️::before {
+    content: '☘️';
+}
+
 .gameboard div:nth-child(1) {
     border-right: var(--border); 
     border-bottom: var(--border);
